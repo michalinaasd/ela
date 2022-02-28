@@ -1,0 +1,65 @@
+[
+  {
+    "type": "bulb",
+    "id": 1,
+    "name": "Bigtax",
+    "connectionState": "poorConnection",
+    "isTurnedOn": true,
+    "brightness": 93,
+    "color": "#d00b06"
+  },
+  {
+    "type": "bulb",
+    "id": 5,
+    "name": "Toughjoyfax",
+    "connectionState": "connected",
+    "isTurnedOn": true,
+    "brightness": 6,
+    "color": "#969413"
+  },
+  {
+    "type": "outlet",
+    "id": 8,
+    "name": "Redhold",
+    "connectionState": "connected",
+    "isTurnedOn": false,
+    "powerConsumption": 397
+  },
+  {
+    "type": "outlet",
+    "id": 9,
+    "name": "Tempsoft",
+    "connectionState": "poorConnection",
+    "isTurnedOn": true,
+    "powerConsumption": 221
+  },
+  {
+    "type": "outlet",
+    "id": 10,
+    "name": "Tin",
+    "connectionState": "poorConnection",
+    "isTurnedOn": true,
+    "powerConsumption": 69
+  },
+  {
+    "type": "temperatureSensor",
+    "id": 2,
+    "name": "Latlux",
+    "connectionState": "poorConnection",
+    "temperature": 25
+  },
+  {
+    "type": "temperatureSensor",
+    "id": 3,
+    "name": "Lotlux",
+    "connectionState": "connected",
+    "temperature": 16
+  },
+  {
+    "type": "temperatureSensor",
+    "id": 4,
+    "name": "Zathin",
+    "connectionState": "disconnected",
+    "temperature": 9
+  }
+]

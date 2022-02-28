@@ -1,0 +1,50 @@
+[
+  {
+    "type": "bulb",
+    "id": 1,
+    "name": "Bigtax",
+    "connectionState": "poorConnection"
+  },
+  {
+    "type": "temperatureSensor",
+    "id": 2,
+    "name": "Latlux",
+    "connectionState": "poorConnection"
+  },
+  {
+    "type": "temperatureSensor",
+    "id": 3,
+    "name": "Lotlux",
+    "connectionState": "connected"
+  },
+  {
+    "type": "temperatureSensor",
+    "id": 4,
+    "name": "Zathin",
+    "connectionState": "disconnected"
+  },
+  {
+    "type": "bulb",
+    "id": 5,
+    "name": "Toughjoyfax",
+    "connectionState": "connected"
+  },
+  {
+    "type": "outlet",
+    "id": 8,
+    "name": "Redhold",
+    "connectionState": "connected"
+  },
+  {
+    "type": "outlet",
+    "id": 9,
+    "name": "Tempsoft",
+    "connectionState": "poorConnection"
+  },
+  {
+    "type": "outlet",
+    "id": 10,
+    "name": "Tin",
+    "connectionState": "poorConnection"
+  }
+]
