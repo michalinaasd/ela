@@ -4,7 +4,7 @@
     "id": 1,
     "name": "Bigtax",
     "connectionState": "poorConnection",
-    "isTurnedOn": true,
+    "isTurnedOn": false,
     "brightness": 93,
     "color": "#d00b06"
   },

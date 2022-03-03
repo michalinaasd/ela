@@ -1,6 +1,8 @@
 import { Flex } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import DetailsListItem from "./DetailsListItem";
+import Bulb from "./Bulb";
+import Outlet from "./Outlet";
+import TemperatureSensor from "./TemperatureSensor";
 
 const Details = (props) => {
   const [deviceDetails, setDeviceDetails] = useState();
@@ -30,11 +32,15 @@ const Details = (props) => {
 
   return (
     <Flex direction="column" p="1">
-      {deviceDetails &&
-        Object.entries(deviceDetails).map((value) => {
-          if (value[0] !== "id" && value[0] !== "type")
-            return <DetailsListItem value={value} />;
-        })}
+      {deviceDetails && deviceDetails.type === "bulb" && (
+        <Bulb device={deviceDetails} />
+      )}
+      {deviceDetails && deviceDetails.type === "outlet" && (
+        <Outlet device={deviceDetails} />
+      )}
+      {deviceDetails && deviceDetails.type === "temperatureSensor" && (
+        <TemperatureSensor device={deviceDetails} />
+      )}
     </Flex>
   );
 };

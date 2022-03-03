@@ -26,20 +26,23 @@ const DeviceList = (props) => {
         getData();
       }, 20000);
       return () => clearInterval(interval);
+    } else {
+      getData();
     }
-  }, []);
+  }, [deviceList]);
 
   return (
     <Flex
       bg="green.300"
       direction="column"
-      maxWidth="100vh"
+      h="100%"
       w={props.width}
       align="center"
       overflow="scroll"
       css={{
         "&::-webkit-scrollbar": {
           width: "4px",
+          height: "100%",
         },
         "&::-webkit-scrollbar-track": {
           width: "6px",
@@ -52,6 +55,7 @@ const DeviceList = (props) => {
     >
       {deviceList.map((item) => (
         <Device
+          key={item.id}
           device={item}
           onClick={() => {
             props.onClick(item);
