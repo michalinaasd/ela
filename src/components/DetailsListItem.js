@@ -5,10 +5,11 @@ const DetailsListItem = (props) => {
     <Flex
       justify="space-between"
       direction="column"
+      background="whiteAlpha.500"
       align="center"
       shadow="md"
       h="5rem"
-      p="2"
+      p="3"
       m="2"
     >
       {props.children}

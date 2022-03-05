@@ -3,9 +3,6 @@ import React from "react";
 import { IoFlashOutline } from "react-icons/io5";
 import DetailsListItem from "./DetailsListItem";
 const Outlet = (props) => {
-  if (props.device.connectionState === "disconnected") {
-    return <Text>disconnected</Text>;
-  }
   return (
     <>
       <DetailsListItem>

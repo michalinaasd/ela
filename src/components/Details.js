@@ -1,4 +1,4 @@
-import { Flex } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import Bulb from "./Bulb";
 import Outlet from "./Outlet";
@@ -19,7 +19,7 @@ const Details = (props) => {
       })
       .then((myJson) => {
         myJson.forEach((item) => {
-          if (item.id === props.deviceId) {
+          if (item.id === props.device.id) {
             setDeviceDetails(item);
           }
         });
@@ -28,10 +28,22 @@ const Details = (props) => {
 
   useEffect(() => {
     getData();
+    const interval = setInterval(() => {
+      getData();
+    }, 1000);
+    return () => clearInterval(interval);
   }, [props]);
 
+  if (props.device.connectionState === "disconnected") {
+    return (
+      <Text p="2" align="center">
+        disconnected
+      </Text>
+    );
+  }
+
   return (
-    <Flex direction="column" p="1">
+    <Flex direction="column" p="10">
       {deviceDetails && deviceDetails.type === "bulb" && (
         <Bulb device={deviceDetails} />
       )}

@@ -21,21 +21,18 @@ const DeviceList = (props) => {
   };
 
   useEffect(() => {
-    if (deviceList) {
-      const interval = setInterval(() => {
-        getData();
-      }, 20000);
-      return () => clearInterval(interval);
-    } else {
+    getData();
+
+    const interval = setInterval(() => {
       getData();
-    }
+    }, 1000);
+    return () => clearInterval(interval);
   }, [deviceList]);
 
   return (
     <Flex
       bg="green.300"
       direction="column"
-      h="100%"
       w={props.width}
       align="center"
       overflow="scroll"
@@ -51,6 +48,7 @@ const DeviceList = (props) => {
           background: "#38A169",
           borderRadius: "24px",
         },
+        height: "100vh",
       }}
     >
       {deviceList.map((item) => (

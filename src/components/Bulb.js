@@ -13,14 +13,10 @@ import React from "react";
 import { IoBulbOutline } from "react-icons/io5";
 import DetailsListItem from "./DetailsListItem";
 const Bulb = (props) => {
-  if (props.device.connectionState === "disconnected") {
-    return <Text>disconnected</Text>;
-  }
   return (
     <>
       <DetailsListItem>
         <Icon as={IoBulbOutline} h="40%" w="2rem" />
-        <Text>{props.device.name}</Text>
         <Switch id="isTurnedOn" isChecked={props.device.isTurnedOn} />
       </DetailsListItem>
       {props.device.isTurnedOn && (
