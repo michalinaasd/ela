@@ -1,59 +1,35 @@
-import { Flex, Text } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
+import { Button, Flex, Text } from "@chakra-ui/react";
+import React from "react";
 import Bulb from "./Bulb";
 import Outlet from "./Outlet";
 import TemperatureSensor from "./TemperatureSensor";
 
 const Details = (props) => {
-  const [deviceDetails, setDeviceDetails] = useState();
-
-  const getData = () => {
-    fetch("SmartDevicesDetails.json", {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then((myJson) => {
-        myJson.forEach((item) => {
-          if (item.id === props.device.id) {
-            setDeviceDetails(item);
-          }
-        });
-      });
-  };
-
-  useEffect(() => {
-    getData();
-    const interval = setInterval(() => {
-      getData();
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [props]);
-
-  if (props.device.connectionState === "disconnected") {
+  if (props.device?.connectionState === "disconnected")
     return (
-      <Text p="2" align="center">
-        disconnected
-      </Text>
+      <Flex direction="column" p="10">
+        <Text p="2" align="center">
+          disconnected
+        </Text>
+        <Button onClick={props.onClick}>Generate</Button>
+      </Flex>
     );
-  }
 
   return (
-    <Flex direction="column" p="10">
-      {deviceDetails && deviceDetails.type === "bulb" && (
-        <Bulb device={deviceDetails} />
-      )}
-      {deviceDetails && deviceDetails.type === "outlet" && (
-        <Outlet device={deviceDetails} />
-      )}
-      {deviceDetails && deviceDetails.type === "temperatureSensor" && (
-        <TemperatureSensor device={deviceDetails} />
-      )}
-    </Flex>
+    <>
+      <Flex direction="column" p="10">
+        {props.device && props.device.type === "bulb" && (
+          <Bulb device={props.device} />
+        )}
+        {props.device && props.device.type === "outlet" && (
+          <Outlet device={props.device} />
+        )}
+        {props.device && props.device.type === "temperatureSensor" && (
+          <TemperatureSensor device={props.device} />
+        )}
+        <Button onClick={props.onClick}>Generate</Button>
+      </Flex>
+    </>
   );
 };
 

@@ -5,7 +5,7 @@ import Device from "./Device";
 const DeviceList = (props) => {
   const [deviceList, setDeviceList] = useState([]);
 
-  const getData = (props) => {
+  const getData = () => {
     fetch("SmartDevice.json", {
       headers: {
         "Content-Type": "application/json",
@@ -22,12 +22,7 @@ const DeviceList = (props) => {
 
   useEffect(() => {
     getData();
-
-    const interval = setInterval(() => {
-      getData();
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [deviceList]);
+  }, []);
 
   return (
     <Flex

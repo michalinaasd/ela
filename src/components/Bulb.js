@@ -12,24 +12,24 @@ import {
 import React from "react";
 import { IoBulbOutline } from "react-icons/io5";
 import DetailsListItem from "./DetailsListItem";
-const Bulb = (props) => {
+const Bulb = ({ device }) => {
   return (
     <>
       <DetailsListItem>
         <Icon as={IoBulbOutline} h="40%" w="2rem" />
-        <Switch id="isTurnedOn" isChecked={props.device.isTurnedOn} />
+        <Switch id="isTurnedOn" isChecked={device.isTurnedOn} />
       </DetailsListItem>
-      {props.device.isTurnedOn && (
+      {device.isTurnedOn && (
         <>
           <DetailsListItem>
             <Text fontSize="15">brightness</Text>
-            <Slider aria-label="slider-ex-1" value={props.device.brightness}>
+            <Slider aria-label="slider-ex-1" value={device.brightness}>
               <SliderTrack>
                 <SliderFilledTrack />
               </SliderTrack>
               <SliderThumb />
               <SliderMark
-                value={props.device.brightness}
+                value={device.brightness}
                 textAlign="center"
                 bg="blue.500"
                 color="white"
@@ -37,7 +37,7 @@ const Bulb = (props) => {
                 ml="-5"
                 w="12"
               >
-                {props.device.brightness}%
+                {device.brightness}%
               </SliderMark>
             </Slider>
           </DetailsListItem>
@@ -47,7 +47,7 @@ const Bulb = (props) => {
             <Box
               w="1.7rem"
               h="1.7rem"
-              bg={props.device.color}
+              css={{ background: "#" + device.color }}
               borderRadius={20}
               border="2px solid white"
               shadow="md"
